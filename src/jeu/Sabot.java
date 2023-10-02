@@ -76,8 +76,12 @@ public class Sabot implements Iterator<Carte>{
 		}
 	}
 	
-	public void pioche() {
-	
+	public Carte pioche() {
+		indiceIterateur=0;
+		Carte carte=next();
+		remove();
+		System.out.println("Je pioche"+carte.toString());
+		return carte;
 	}
 	
 }
