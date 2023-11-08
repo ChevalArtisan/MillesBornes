@@ -1,5 +1,7 @@
 package carte;
 
+import jeu.Joueur;
+
 public class Attaque extends Bataille {
 
 	public Attaque(int nombre, Type type) {
@@ -31,6 +33,11 @@ public class Attaque extends Bataille {
 			
 		}
 		return retour;
+	}
+	@Override
+	public boolean appliquer(Joueur j) {
+		
+		return false;
 	}
 
 }

@@ -1,5 +1,7 @@
 package carte;
 
+import jeu.Joueur;
+
 public class Borne extends Carte{
 	private int km;
 	public Borne(int nombre, int km) {
@@ -23,4 +25,12 @@ public class Borne extends Carte{
 	else 
 		return false;
 }
+	@Override
+	public boolean appliquer(Joueur j) {
+		if(j.estBloque()&&j.getKM()<1000) {
+			j.getMain().jouer(this);
+			return true;
+		}
+		return false;
+	}
 }

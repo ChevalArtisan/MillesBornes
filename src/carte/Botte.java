@@ -1,5 +1,7 @@
 package carte;
 
+import jeu.Joueur;
+
 public class Botte extends Probleme{
 
 	@Override
@@ -34,5 +36,26 @@ public class Botte extends Probleme{
 		super(nombre, type);
 		// TODO Auto-generated constructor stub
 	}
+
+
+	@Override
+	public boolean appliquer(Joueur j) {
+		for(Botte b:j.getBottes()) {
+			if (this.getType()==b.getType()) {
+				return false;
+			}
+		}
+		for(Bataille b :j.getBataille()) {
+			if (this.getType()==b.getType()) {
+				j.getBataille().remove(this);
+		}}
+		
+		if(this.getType()==Type.FEU) {
+			j.getLimites().clear();
+		}
+		j.getMain().jouer(this);
+		return true;
+	}
+
 
 }
